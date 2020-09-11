@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="nav">
+      <img alt="Popcorn" src="../src/assets/movie.png" width="200" />
     </div>
     <router-view />
   </div>
