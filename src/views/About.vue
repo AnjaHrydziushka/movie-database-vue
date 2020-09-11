@@ -1,5 +1,17 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <OneMovie />
   </div>
 </template>
+
+<script>
+// @ is an alias to /src
+import OneMovie from "@/components/OneMovie.vue";
+
+export default {
+  name: "Home",
+  components: {
+    OneMovie
+  }
+};
+</script>
