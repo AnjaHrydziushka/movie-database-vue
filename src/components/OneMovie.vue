@@ -1,12 +1,16 @@
 <template>
   <div class="movie">
-    <h1>Page of the movie with ID {{ $route.params.id }}</h1>
+    <h1>Page of the movie with ID</h1>
   </div>
 </template>
 
 <script>
 export default {
-  name: "OneMovie"
+  computed: {
+    movie() {
+      return this.$store.getters.oneMovie(parseInt(this.$route.params.id));
+    }
+  }
 };
 </script>
 

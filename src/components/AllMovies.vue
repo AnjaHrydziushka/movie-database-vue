@@ -13,7 +13,6 @@
 
 <script>
 export default {
-  name: "AllMovies",
   data() {
     return {
       movies: []

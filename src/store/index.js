@@ -76,7 +76,7 @@ export default new Vuex.Store({
   actions: {},
   modules: {},
   getters: {
-    getMovies: state => state.allMovies
-  },
-  getOneMovie: state => id => state.allMovies.find(movie => movie.id === id)
+    getMovies: state => state.allMovies,
+    oneMovie: state => id => state.allMovies.find(movie => movie.id === id)
+  }
 });

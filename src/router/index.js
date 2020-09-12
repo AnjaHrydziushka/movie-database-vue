@@ -12,7 +12,7 @@ const routes = [
   },
   {
     path: "/movies/:id",
-    name: "MoviePage",
+    name: "OneMovie",
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/MoviePage.vue")
   }
