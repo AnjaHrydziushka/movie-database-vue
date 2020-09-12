@@ -5,7 +5,7 @@
       <div v-for="movie in movies" :key="movie.id" class="container">
         <h2>{{ movie.title }}</h2>
         <img :src="movie.image" alt="Movie poster" width="300px" />
-        <button>More info</button>
+        <router-link :to="`/movies/${movie.id}`">More details</router-link>
       </div>
     </div>
   </div>

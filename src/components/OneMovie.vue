@@ -1,6 +1,6 @@
 <template>
   <div class="movie">
-    <h1>One movie page</h1>
+    <h1>Page of the movie with ID {{ $route.params.id }}</h1>
   </div>
 </template>
 
