@@ -40,6 +40,7 @@ export default {
   methods: {
     onSubmit() {
       let movie = {
+        id: new Date().getTime(),
         title: this.title,
         year: this.year,
         genre: this.genre,
