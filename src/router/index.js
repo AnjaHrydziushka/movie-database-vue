@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import MoviePage from "../views/MoviePage.vue";
 
 Vue.use(VueRouter);
 
@@ -13,8 +14,7 @@ const routes = [
   {
     path: "/movies/:id",
     name: "OneMovie",
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/MoviePage.vue")
+    component: MoviePage
   }
 ];
 
