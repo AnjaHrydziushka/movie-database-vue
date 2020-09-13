@@ -1,9 +1,16 @@
 <template>
   <div>
-    <h1>Edit Page</h1>
+    <EditMovie />
   </div>
 </template>
 
 <script>
-export default {};
+import EditMovie from "@/components/EditMovie";
+
+export default {
+  name: "EditPage",
+  components: {
+    EditMovie
+  }
+};
 </script>

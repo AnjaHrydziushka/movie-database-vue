@@ -1,9 +1,83 @@
 <template>
-  <div></div>
+  <div v-if="movie">
+    <h2>Edit movie:</h2>
+    <p>
+      <label for="title">Title</label>
+      <input id="title" v-model="title" />
+    </p>
+    <p>
+      <label for="year">Year</label>
+      <input id="year" v-model.number="year" />
+    </p>
+    <p>
+      <label for="genre">Genre</label>
+      <input id="genre" v-model="genre" />
+    </p>
+    <p>
+      <label for="director">Director</label>
+      <input id="director" v-model="director" />
+    </p>
+    <p>
+      <label for="image">Image (URL)</label>
+      <input id="image" v-model="image" />
+    </p>
+    <p>
+      <label for="description">Description</label>
+      <textarea id="description" v-model="description" />
+    </p>
+    <button @click="saveChanges">Save changes</button>
+    <router-link :to="`/movies/${movie.id}`">Back</router-link>
+  </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      title: null,
+      year: null,
+      director: null,
+      genre: null,
+      image: null,
+      description: null
+    };
+  },
+  computed: {
+    movie() {
+      return this.$store.getters.oneMovie(parseInt(this.$route.params.id));
+    }
+  },
+  methods: {
+    saveChanges(e) {
+      if (
+        this.title &&
+        this.year &&
+        this.director &&
+        this.genre &&
+        this.image &&
+        this.description
+      ) {
+        let newMovie = {
+          id: this.$route.params.id,
+          title: this.title,
+          year: this.year,
+          genre: this.genre,
+          director: this.director,
+          image: this.image,
+          description: this.description
+        };
+        this.$store.dispatch("saveChanges", newMovie);
+        this.title = null;
+        this.year = null;
+        this.director = null;
+        this.genre = null;
+        this.image = null;
+        this.description = null;
+        e.preventDefault();
+      }
+    }
+  }
+};
 </script>
 
 <style scoped>

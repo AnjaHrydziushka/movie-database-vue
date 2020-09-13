@@ -76,11 +76,21 @@ export default new Vuex.Store({
     ADD_MOVIE(state, movie) {
       let allMovies = state.allMovies.concat(movie);
       state.allMovies = allMovies;
+    },
+    CHANGE_MOVIE(state, movie) {
+      state.allMovies.forEach(m => {
+        if (m.id == movie.id) {
+          m = movie;
+        }
+      });
     }
   },
   actions: {
     async onSubmit({ commit }, movie) {
       commit("ADD_MOVIE", movie);
+    },
+    async saveChanges({ commit }, movie) {
+      commit("CHANGE_MOVIE", movie);
     }
   },
   modules: {},
