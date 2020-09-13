@@ -1,31 +1,32 @@
 <template>
   <div>
     <h1>Add a new movie</h1>
-    <form>
-      <p>
-        <label for="title">Title </label>
-        <input id="title" />
-      </p>
-      <p>
-        <label for="year">Year </label>
-        <input id="year" />
-      </p>
-      <p>
-        <label for="genre">Genre </label>
-        <input id="genre" />
-      </p>
-      <p>
-        <label for="director">Director </label>
-        <input id="director" />
-      </p>
-      <p>
-        <label for="description">Description </label>
-        <textarea id="description" />
-      </p>
-      <p>
-        <input type="submit" value="Submit" />
-      </p>
-    </form>
+    <p>
+      <label for="title">Title</label>
+      <input id="title" v-model="title" />
+    </p>
+    <p>
+      <label for="year">Year</label>
+      <input id="year" v-model.number="year" />
+    </p>
+    <p>
+      <label for="genre">Genre</label>
+      <input id="genre" v-model="genre" />
+    </p>
+    <p>
+      <label for="director">Director</label>
+      <input id="director" v-model="director" />
+    </p>
+    <p>
+      <label for="image">Image (URL)</label>
+      <input id="image" v-model="image" />
+    </p>
+    <p>
+      <label for="description">Description</label>
+      <textarea id="description" v-model="description" />
+    </p>
+    <button @click="onSubmit">Add movie</button>
+    <router-link :to="`/`">Back</router-link>
   </div>
 </template>
 
@@ -33,11 +34,21 @@
 export default {
   data() {
     return {
-      movies: []
+      movie: {}
     };
   },
-  mounted() {
-    this.movies = this.$store.getters.getMovies;
+  methods: {
+    onSubmit() {
+      let movie = {
+        title: this.title,
+        year: this.year,
+        genre: this.genre,
+        director: this.director,
+        image: this.image,
+        description: this.description
+      };
+      this.$store.dispatch("onSubmit", movie);
+    }
   }
 };
 </script>
