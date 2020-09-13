@@ -1,6 +1,9 @@
 <template>
   <div>
     <h1>Add a new movie</h1>
+    <p v-if="error.length">
+      <b v-for="(err, index) in error" :key="index">{{ err }}</b>
+    </p>
     <p>
       <label for="title">Title</label>
       <input id="title" v-model="title" />
@@ -34,21 +37,41 @@
 export default {
   data() {
     return {
-      movie: {}
+      movie: {},
+      error: []
     };
   },
   methods: {
     onSubmit() {
-      let movie = {
-        id: new Date().getTime(),
-        title: this.title,
-        year: this.year,
-        genre: this.genre,
-        director: this.director,
-        image: this.image,
-        description: this.description
-      };
-      this.$store.dispatch("onSubmit", movie);
+      if (
+        this.title &&
+        this.year &&
+        this.director &&
+        this.genre &&
+        this.image &&
+        this.description
+      ) {
+        let movie = {
+          id: new Date().getTime(),
+          title: this.title,
+          year: this.year,
+          genre: this.genre,
+          director: this.director,
+          image: this.image,
+          description: this.description
+        };
+        this.$store.dispatch("onSubmit", movie);
+      } else {
+        if (
+          !this.title ||
+          !this.year ||
+          !this.genre ||
+          !this.director ||
+          !this.image ||
+          !this.description
+        )
+          this.error.push("Please, fill in all the fields.");
+      }
     }
   }
 };
