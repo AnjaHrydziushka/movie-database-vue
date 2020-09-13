@@ -1,17 +1,17 @@
 <template>
   <div>
-    <AddMovie />
+    <EditMovie />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import AddMovie from "@/components/AddMovie.vue";
+import EditMovie from "@/components/EditMovie.vue";
 
 export default {
-  name: "NewMovie",
+  name: "EditMovie",
   components: {
-    AddMovie
+    EditMovie
   }
 };
 </script>
