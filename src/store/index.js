@@ -4,6 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  strict: true,
   state: {
     allMovies: [
       {
@@ -71,9 +72,17 @@ export default new Vuex.Store({
   mutations: {
     movieDetails(state, payload) {
       state.allMovies = payload;
+    },
+    ADD_MOVIE(state, movie) {
+      let allMovies = state.allMovies.concat(movie);
+      state.allMovies = allMovies;
     }
   },
-  actions: {},
+  actions: {
+    async onSubmit({ commit }, movie) {
+      commit("ADD_MOVIE", movie);
+    }
+  },
   modules: {},
   getters: {
     getMovies: state => state.allMovies,

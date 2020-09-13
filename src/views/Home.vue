@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <router-link :to="`/new-movie`">Create a new movie record</router-link>
     <AllMovies />
   </div>
 </template>
