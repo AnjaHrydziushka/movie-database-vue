@@ -1,15 +1,9 @@
 <template>
-  <div>
-    <h1>Edit page</h1>
-  </div>
+  <div></div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {};
-  }
-};
+export default {};
 </script>
 
 <style scoped>

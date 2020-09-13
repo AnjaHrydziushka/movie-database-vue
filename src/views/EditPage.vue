@@ -1,17 +1,9 @@
 <template>
   <div>
-    <EditMovie />
+    <h1>Edit Page</h1>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import EditMovie from "@/components/EditMovie.vue";
-
-export default {
-  name: "EditMovie",
-  components: {
-    EditMovie
-  }
-};
+export default {};
 </script>
