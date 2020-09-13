@@ -18,7 +18,7 @@ const routes = [
     component: MoviePage
   },
   {
-    path: "/new",
+    path: "/new-movie",
     name: "NewMovie",
     component: NewMovie
   }
