@@ -37,12 +37,17 @@
 export default {
   data() {
     return {
-      movie: {},
+      title: null,
+      year: null,
+      director: null,
+      genre: null,
+      image: null,
+      description: null,
       error: []
     };
   },
   methods: {
-    onSubmit() {
+    onSubmit(e) {
       if (
         this.title &&
         this.year &&
@@ -61,6 +66,12 @@ export default {
           description: this.description
         };
         this.$store.dispatch("onSubmit", movie);
+        this.title = null;
+        this.year = null;
+        this.director = null;
+        this.genre = null;
+        this.image = null;
+        this.description = null;
       } else {
         if (
           !this.title ||
@@ -71,6 +82,7 @@ export default {
           !this.description
         )
           this.error.push("Please, fill in all the fields.");
+        e.preventDefault();
       }
     }
   }
