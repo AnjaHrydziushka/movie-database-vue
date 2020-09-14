@@ -1,11 +1,26 @@
 <template>
   <div id="app">
     <div class="nav">
-      <img alt="Popcorn" src="../src/assets/movie.png" width="200" />
+      <img
+        alt="Popcorn"
+        src="../src/assets/movie.png"
+        width="200"
+        @click="logo"
+      />
     </div>
     <router-view />
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+    logo() {
+      this.$router.push(`/`);
+    }
+  }
+};
+</script>
 
 <style>
 #app {
