@@ -100,7 +100,7 @@ h1 {
 }
 
 button {
-  background-color: orange;
+  background-color: #e82f3e;
   border: none;
   color: black;
   padding: 15px 32px;
@@ -130,7 +130,7 @@ button {
 }
 
 .form-wrapper .title h1 {
-  color: orange;
+  color: #e82f3e;
   text-align: center;
   margin-bottom: 25px;
 }
@@ -155,9 +155,9 @@ button {
   margin: 10px 0;
   background: transparent;
   border: 0px;
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid #e82f3e;
   padding: 10px;
-  color: brown;
+  color: gray;
   width: 100%;
 }
 

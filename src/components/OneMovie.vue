@@ -51,20 +51,17 @@ h1 {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 70px;
 }
 
 .movie-image {
   margin-top: 10px;
   width: 50%;
-  background-color: salmon;
 }
 
 .movie-info {
   margin-top: 10px;
   width: 50%;
   position: relative;
-  background-color: sandybrown;
 }
 
 .description {
@@ -89,7 +86,7 @@ p {
 }
 
 button {
-  background-color: lightgreen;
+  background-color: #0196e5;
   border: none;
   color: black;
   padding: 15px 32px;
@@ -101,5 +98,9 @@ button {
   margin-bottom: 8px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+img {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 </style>

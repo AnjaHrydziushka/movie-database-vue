@@ -1,11 +1,17 @@
 <template>
   <div class="homepage">
     <h1>All movies</h1>
+    <button class="add-new-button" @click="$router.push(`/new-movie`)">
+      ADD NEW MOVIE
+    </button>
     <div class="movies">
       <div v-for="movie in movies" :key="movie.id" class="container">
         <h2>{{ movie.title }}</h2>
         <img :src="movie.image" alt="Movie poster" width="300px" />
-        <button @click="$router.push(`/movies/${movie.id}`)">
+        <button
+          class="about-button"
+          @click="$router.push(`/movies/${movie.id}`)"
+        >
           About movie
         </button>
       </div>
@@ -54,7 +60,7 @@ h1 {
   margin: 10px;
   width: 25%;
   flex-direction: column;
-  border: 1px solid lightgrey;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 img {
@@ -62,8 +68,21 @@ img {
   object-fit: cover;
 }
 
-button {
-  background-color: lightgreen;
+.add-new-button {
+  background-color: #e82f3e;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.about-button {
+  background-color: #fcb540;
   border: none;
   color: black;
   padding: 15px 32px;

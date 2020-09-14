@@ -1,7 +1,7 @@
 <template>
   <div v-if="movie" class="edit-movie">
     <div class="title">
-      <h2>Edit movie:</h2>
+      <h1>Edit movie:</h1>
     </div>
     <div class="error">
       <p v-if="error.length">
@@ -105,7 +105,7 @@ h1 {
 }
 
 button {
-  background-color: orange;
+  background-color: #0196e5;
   border: none;
   color: black;
   padding: 15px 32px;
@@ -135,7 +135,7 @@ button {
 }
 
 .form-wrapper .title h1 {
-  color: orange;
+  color: #0196e5;
   text-align: center;
   margin-bottom: 25px;
 }
@@ -160,9 +160,9 @@ button {
   margin: 10px 0;
   background: transparent;
   border: 0px;
-  border-bottom: 2px solid orange;
+  border-bottom: 2px solid #0196e5;
   padding: 10px;
-  color: brown;
+  color: gray;
   width: 100%;
 }
 
