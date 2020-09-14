@@ -79,8 +79,8 @@ export default new Vuex.Store({
       let updatedMovies = state.allMovies.concat(movie);
       state.allMovies = updatedMovies;
     },
-    saveChanges(state, movie) {
-      state.allMovies.forEach((m) => {
+    CHANGE_MOVIE(state, movie) {
+      state.allMovies.forEach(m => {
         if (m.id == movie.id) {
           m = movie;
         }
@@ -93,13 +93,11 @@ export default new Vuex.Store({
     },
     async saveChanges({ commit }, movie) {
       commit("CHANGE_MOVIE", movie);
-      return movie;
     }
   },
   modules: {},
   getters: {
-    getMovies: (state) => state.allMovies,
-    oneMovie: (state) => (id) =>
-      state.allMovies.find((movie) => movie.id === id),
-  },
+    getMovies: state => state.allMovies,
+    oneMovie: state => id => state.allMovies.find(movie => movie.id === id)
+  }
 });

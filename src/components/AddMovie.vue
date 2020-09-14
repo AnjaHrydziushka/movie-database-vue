@@ -47,7 +47,7 @@ export default {
     };
   },
   methods: {
-    async onSubmit(e) {
+    onSubmit(e) {
       if (
         this.title &&
         this.year &&

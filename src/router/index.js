@@ -9,11 +9,6 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home
-  },
-  {
     path: "/new-movie",
     name: "NewMovie",
     component: NewMovie
@@ -27,6 +22,11 @@ const routes = [
     path: "/movies/:id/edit",
     name: "EditPage",
     component: EditPage
+  },
+  {
+    path: "/",
+    name: "Home",
+    component: Home
   }
 ];
 
