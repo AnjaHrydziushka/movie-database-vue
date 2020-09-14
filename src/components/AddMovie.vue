@@ -1,6 +1,5 @@
 <template>
   <div class="add-movie">
-    <div class="form-wrapper">
       <div class="title">
         <h1>Add a new movie</h1>
       </div>
@@ -39,10 +38,9 @@
           </p>
         </div>
       </div>
-        <button @click="onSubmit">Add movie</button>
-        <button @click="$router.push(`/`)">Back</button>
+      <button @click="onSubmit">Add movie</button>
+      <button @click="$router.push(`/`)">Back</button>
     </div>
-  </div>
 </template>
 
 <script>
@@ -116,11 +114,7 @@ button {
   margin-right: 10px;
 }
 
-/* .add-movie {
-
-} */
-
-.form-wrapper {
+.add-movie {
   position: absolute;
   transform: translate(-50%, -20%);
   top: 50%;
@@ -174,5 +168,18 @@ button {
 label {
   text-align: left;
   margin-right: 150px;
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    flex-direction: column;
+  }
+  .description textarea {
+    height: 80px;
+  }
+  .inputs,
+  .description {
+    width: 100%;
+  }
 }
 </style>
