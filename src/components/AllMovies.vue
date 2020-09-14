@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="homepage">
     <h1>All movies</h1>
     <div class="movies">
       <div v-for="movie in movies" :key="movie.id" class="container">
@@ -25,6 +25,12 @@ export default {
 </script>
 
 <style scoped>
+.homepage {
+  text-align: center;
+  width: 90%;
+  margin: auto;
+}
+
 h1 {
   padding: 0;
 }
@@ -32,11 +38,20 @@ h1 {
 .movies {
   display: flex;
   flex-flow: wrap;
-  padding: 1rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .container {
-  margin-top: 10px;
+  margin: 10px;
   width: 25%;
+  flex-direction: column;
+  border: 1px solid lightgrey;
+}
+
+img {
+  height: 500px;
+  object-fit: cover;
 }
 </style>

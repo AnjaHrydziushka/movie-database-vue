@@ -4,9 +4,6 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  // DON'T FORGET TO DELETE A STRICKT MODE BEFORE DEPLOYING
-
-  strict: true,
   state: {
     allMovies: [
       {
