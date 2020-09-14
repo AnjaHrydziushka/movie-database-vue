@@ -1,36 +1,45 @@
 <template>
-  <div v-if="movie">
-    <h2>Edit movie:</h2>
-    <p>
-      <label for="title">Title</label>
-      <input id="title" v-model="title" :placeholder="movie.title" />
-    </p>
-    <p>
-      <label for="year">Year</label>
-      <input id="year" v-model="year" :placeholder="movie.year" />
-    </p>
-    <p>
-      <label for="genre">Genre</label>
-      <input id="genre" v-model="genre" :placeholder="movie.genre" />
-    </p>
-    <p>
-      <label for="director">Director</label>
-      <input id="director" v-model="director" :placeholder="movie.director" />
-    </p>
-    <p>
-      <label for="image">Image (URL)</label>
-      <input id="image" v-model="image" />
-    </p>
-    <p>
-      <label for="description">Description</label>
-      <textarea
-        id="description"
-        v-model="description"
-        :placeholder="movie.description"
-      />
-    </p>
+  <div v-if="movie" class="edit-movie">
+    <div class="title">
+      <h2>Edit movie:</h2>
+    </div>
+    <div class="error">
+      <p v-if="error.length">
+        <b v-for="(err, index) in error" :key="index">{{ err }}</b>
+      </p>
+    </div>
+    <div class="form">
+      <div class="inputs">
+        <p>
+          <label for="title">Title</label>
+          <input v-model="title" :placeholder="movie.title" />
+        </p>
+        <p>
+          <label for="year">Year</label>
+          <input v-model="year" :placeholder="movie.year" />
+        </p>
+        <p>
+          <label for="genre">Genre</label>
+          <input v-model="genre" :placeholder="movie.genre" />
+        </p>
+        <p>
+          <label for="director">Director</label>
+          <input v-model="director" :placeholder="movie.director" />
+        </p>
+        <p>
+          <label for="image">Image (URL)</label>
+          <input v-model="image" placeholder="Add new poster" />
+        </p>
+      </div>
+      <div class="description">
+        <p>
+          <label for="description">Description</label>
+          <textarea v-model="description" :placeholder="movie.description" />
+        </p>
+      </div>
+    </div>
     <button @click="saveChanges">Save changes</button>
-    <router-link :to="`/movies/${movie.id}`">Back</router-link>
+    <button @click="$router.push(`/movies/${movie.id}`)">Back</button>
   </div>
 </template>
 
@@ -43,7 +52,8 @@ export default {
       director: null,
       genre: null,
       image: null,
-      description: null
+      description: null,
+      error: []
     };
   },
   computed: {
@@ -72,6 +82,16 @@ export default {
         };
         this.$store.dispatch("saveChanges", newMovie);
         this.$router.push(`/`);
+      } else {
+        if (
+          !this.title ||
+          !this.year ||
+          !this.genre ||
+          !this.director ||
+          !this.image ||
+          !this.description
+        )
+          this.error.push("Please, fill in all the fields.");
         e.preventDefault();
       }
     }
@@ -82,5 +102,89 @@ export default {
 <style scoped>
 h1 {
   padding: 0;
+}
+
+button {
+  background-color: orange;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.edit-movie {
+  position: absolute;
+  transform: translate(-50%, -20%);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
+
+.form-wrapper .title h1 {
+  color: orange;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form {
+  display: flex;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4%;
+}
+
+.inputs,
+.description {
+  width: 48%;
+}
+
+.inputs input,
+.description textarea {
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid orange;
+  padding: 10px;
+  color: brown;
+  width: 100%;
+}
+
+.description textarea {
+  height: 459px;
+}
+
+label {
+  text-align: left;
+  margin-right: 150px;
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    flex-direction: column;
+  }
+  .description textarea {
+    height: 80px;
+  }
+  .inputs,
+  .description {
+    width: 100%;
+  }
 }
 </style>

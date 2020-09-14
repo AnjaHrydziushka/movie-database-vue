@@ -1,46 +1,46 @@
 <template>
   <div class="add-movie">
-      <div class="title">
-        <h1>Add a new movie</h1>
-      </div>
-      <div class="error">
-        <p v-if="error.length">
-          <b v-for="(err, index) in error" :key="index">{{ err }}</b>
+    <div class="title">
+      <h1>Add a new movie</h1>
+    </div>
+    <div class="error">
+      <p v-if="error.length">
+        <b v-for="(err, index) in error" :key="index">{{ err }}</b>
+      </p>
+    </div>
+    <div class="form">
+      <div class="inputs">
+        <p>
+          <label for="title">Title</label>
+          <input v-model="title" />
+        </p>
+        <p>
+          <label for="year">Year</label>
+          <input v-model.number="year" />
+        </p>
+        <p>
+          <label for="genre">Genre</label>
+          <input v-model="genre" />
+        </p>
+        <p>
+          <label for="director">Director</label>
+          <input v-model="director" />
+        </p>
+        <p>
+          <label for="image">Image (URL)</label>
+          <input v-model="image" />
         </p>
       </div>
-      <div class="form">
-        <div class="inputs">
-          <p>
-            <label for="title">Title</label>
-            <input v-model="title" />
-          </p>
-          <p>
-            <label for="year">Year</label>
-            <input v-model.number="year" />
-          </p>
-          <p>
-            <label for="genre">Genre</label>
-            <input v-model="genre" />
-          </p>
-          <p>
-            <label for="director">Director</label>
-            <input v-model="director" />
-          </p>
-          <p>
-            <label for="image">Image (URL)</label>
-            <input v-model="image" />
-          </p>
-        </div>
-        <div class="description">
-          <p>
-            <label for="description">Description</label>
-            <textarea v-model="description" />
-          </p>
-        </div>
+      <div class="description">
+        <p>
+          <label for="description">Description</label>
+          <textarea v-model="description" />
+        </p>
       </div>
-      <button @click="onSubmit">Add movie</button>
-      <button @click="$router.push(`/`)">Back</button>
     </div>
+    <button @click="onSubmit">Add movie</button>
+    <button @click="$router.push(`/`)">Back</button>
+  </div>
 </template>
 
 <script>
@@ -100,7 +100,7 @@ h1 {
 }
 
 button {
-  background-color: lightgreen;
+  background-color: orange;
   border: none;
   color: black;
   padding: 15px 32px;
