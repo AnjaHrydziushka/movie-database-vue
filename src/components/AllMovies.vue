@@ -58,14 +58,15 @@ h1 {
 
 .container {
   margin: 10px;
-  width: 25%;
   flex-direction: column;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  width: 20rem;
 }
 
 img {
   height: 500px;
   object-fit: cover;
+  width: 100%;
 }
 
 .add-new-button {
@@ -92,11 +93,5 @@ img {
   font-size: 16px;
   border-radius: 12px;
   margin-bottom: 8px;
-}
-
-@media all and (max-width: 700px) {
-  .movies {
-    flex-direction: column;
-  }
 }
 </style>
