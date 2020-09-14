@@ -170,9 +170,12 @@ label {
   margin-right: 150px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .form {
     flex-direction: column;
+  }
+  .add-movie {
+    width: 75%;
   }
   .description textarea {
     height: 80px;

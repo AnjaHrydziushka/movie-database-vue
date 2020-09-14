@@ -179,6 +179,9 @@ label {
   .form {
     flex-direction: column;
   }
+  .edit-movie {
+    width: 75%;
+  }
   .description textarea {
     height: 80px;
   }
