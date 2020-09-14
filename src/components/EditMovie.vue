@@ -23,7 +23,11 @@
     </p>
     <p>
       <label for="description">Description</label>
-      <textarea id="description" v-model="description" :placeholder="movie.description" />
+      <textarea
+        id="description"
+        v-model="description"
+        :placeholder="movie.description"
+      />
     </p>
     <button @click="saveChanges">Save changes</button>
     <router-link :to="`/movies/${movie.id}`">Back</router-link>

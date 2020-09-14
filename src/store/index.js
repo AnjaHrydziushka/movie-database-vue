@@ -80,9 +80,9 @@ export default new Vuex.Store({
       state.allMovies = updatedMovies;
     },
     CHANGE_MOVIE(state, movie) {
-      state.allMovies.forEach(m => {
+      state.allMovies.forEach((m, index) => {
         if (m.id == movie.id) {
-          m = movie;
+          state.allMovies[index] = movie;
         }
       });
     }
