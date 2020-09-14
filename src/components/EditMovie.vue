@@ -1,24 +1,21 @@
 <template>
-  <div>
-    <h1>Add a new movie</h1>
-    <p v-if="error.length">
-      <b v-for="(err, index) in error" :key="index">{{ err }}</b>
-    </p>
+  <div v-if="movie">
+    <h2>Edit movie:</h2>
     <p>
       <label for="title">Title</label>
-      <input id="title" v-model="title" />
+      <input id="title" v-model="title" :placeholder="movie.title" />
     </p>
     <p>
       <label for="year">Year</label>
-      <input id="year" v-model.number="year" />
+      <input id="year" v-model="year" :placeholder="movie.year" />
     </p>
     <p>
       <label for="genre">Genre</label>
-      <input id="genre" v-model="genre" />
+      <input id="genre" v-model="genre" :placeholder="movie.genre" />
     </p>
     <p>
       <label for="director">Director</label>
-      <input id="director" v-model="director" />
+      <input id="director" v-model="director" :placeholder="movie.director" />
     </p>
     <p>
       <label for="image">Image (URL)</label>
@@ -26,10 +23,10 @@
     </p>
     <p>
       <label for="description">Description</label>
-      <textarea id="description" v-model="description" />
+      <textarea id="description" v-model="description" :placeholder="movie.description" />
     </p>
-    <button @click="onSubmit">Add movie</button>
-    <router-link :to="`/`">Back</router-link>
+    <button @click="saveChanges">Save changes</button>
+    <router-link :to="`/movies/${movie.id}`">Back</router-link>
   </div>
 </template>
 
@@ -42,12 +39,16 @@ export default {
       director: null,
       genre: null,
       image: null,
-      description: null,
-      error: []
+      description: null
     };
   },
+  computed: {
+    movie() {
+      return this.$store.getters.oneMovie(parseInt(this.$route.params.id));
+    }
+  },
   methods: {
-    onSubmit(e) {
+    saveChanges(e) {
       if (
         this.title &&
         this.year &&
@@ -56,8 +57,8 @@ export default {
         this.image &&
         this.description
       ) {
-        let movie = {
-          id: new Date().getTime(),
+        let newMovie = {
+          id: this.$route.params.id,
           title: this.title,
           year: this.year,
           genre: this.genre,
@@ -65,18 +66,8 @@ export default {
           image: this.image,
           description: this.description
         };
-        this.$store.dispatch("onSubmit", movie);
+        this.$store.dispatch("saveChanges", newMovie);
         this.$router.push(`/`);
-      } else {
-        if (
-          !this.title ||
-          !this.year ||
-          !this.genre ||
-          !this.director ||
-          !this.image ||
-          !this.description
-        )
-          this.error.push("Please, fill in all the fields.");
         e.preventDefault();
       }
     }

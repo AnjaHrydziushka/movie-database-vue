@@ -4,6 +4,8 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
+  // DON'T FORGET TO DELETE A STRICKT MODE BEFORE DEPLOYING
+
   strict: true,
   state: {
     allMovies: [
@@ -15,7 +17,7 @@ export default new Vuex.Store({
         director: "Tom Shadyac",
         genre: "comedy",
         description:
-          "A goofy detective specializing in animals goes in search of the missing mascot of the Miami Dolphins."
+          "A goofy detective specializing in animals goes in search of the missing mascot of the Miami Dolphins.",
       },
       {
         id: 2,
@@ -25,7 +27,7 @@ export default new Vuex.Store({
         director: "Chris Renaud, Yarrow Cheney",
         genre: "animation",
         description:
-          "The quiet life of a terrier named Max is upended when his owner takes in Duke, a stray whom Max instantly dislikes."
+          "The quiet life of a terrier named Max is upended when his owner takes in Duke, a stray whom Max instantly dislikes.",
       },
       {
         id: 3,
@@ -35,7 +37,7 @@ export default new Vuex.Store({
         director: "Todd Phillips",
         genre: "drama",
         description:
-          "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker."
+          "In Gotham City, mentally troubled comedian Arthur Fleck is disregarded and mistreated by society. He then embarks on a downward spiral of revolution and bloody crime. This path brings him face-to-face with his alter-ego: the Joker.",
       },
       {
         id: 4,
@@ -45,7 +47,7 @@ export default new Vuex.Store({
         director: "Mike Flanagan",
         genre: "horror",
         description:
-          "Years following the events of The Shining (1980), a now-adult Dan Torrance must protect a young girl with similar powers from a cult known as The True Knot, who prey on children with powers to remain immortal."
+          "Years following the events of The Shining (1980), a now-adult Dan Torrance must protect a young girl with similar powers from a cult known as The True Knot, who prey on children with powers to remain immortal.",
       },
       {
         id: 5,
@@ -55,7 +57,7 @@ export default new Vuex.Store({
         director: "Nicholas Stoller",
         genre: "comedy",
         description:
-          "Devastated Peter takes a Hawaiian vacation in order to deal with the recent break-up with his TV star girlfriend, Sarah. Little does he know, Sarah's traveling to the same resort as her ex - and she's bringing along her new boyfriend."
+          "Devastated Peter takes a Hawaiian vacation in order to deal with the recent break-up with his TV star girlfriend, Sarah. Little does he know, Sarah's traveling to the same resort as her ex - and she's bringing along her new boyfriend.",
       },
       {
         id: 6,
@@ -65,7 +67,7 @@ export default new Vuex.Store({
         director: "Joe Wright",
         genre: "romance",
         description:
-          "Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy. But Mr. Darcy reluctantly finds himself falling in love with a woman beneath his class. Can each overcome their own pride and prejudice?"
+          "Sparks fly when spirited Elizabeth Bennet meets single, rich, and proud Mr. Darcy. But Mr. Darcy reluctantly finds himself falling in love with a woman beneath his class. Can each overcome their own pride and prejudice?",
       }
     ]
   },
@@ -74,13 +76,23 @@ export default new Vuex.Store({
       state.allMovies = payload;
     },
     ADD_MOVIE(state, movie) {
-      let allMovies = state.allMovies.concat(movie);
-      state.allMovies = allMovies;
+      let updatedMovies = state.allMovies.concat(movie);
+      state.allMovies = updatedMovies;
+    },
+    CHANGE_MOVIE(state, movie) {
+      state.allMovies.forEach(m => {
+        if (m.id == movie.id) {
+          m = movie;
+        }
+      });
     }
   },
   actions: {
     async onSubmit({ commit }, movie) {
       commit("ADD_MOVIE", movie);
+    },
+    async saveChanges({ commit }, movie) {
+      commit("CHANGE_MOVIE", movie);
     }
   },
   modules: {},

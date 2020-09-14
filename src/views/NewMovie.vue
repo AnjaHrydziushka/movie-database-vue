@@ -9,7 +9,7 @@
 import AddMovie from "@/components/AddMovie.vue";
 
 export default {
-  name: "Home",
+  name: "NewMovie",
   components: {
     AddMovie
   }

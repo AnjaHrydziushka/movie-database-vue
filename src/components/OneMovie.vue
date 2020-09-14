@@ -7,6 +7,7 @@
     <img :src="movie.image" :alt="movie.title" width="300px" />
     <p>{{ movie.director }}</p>
     <p>{{ movie.description }}</p>
+    <router-link :to="`/movies/${movie.id}/edit`">Edit</router-link>
   </div>
 </template>
 
