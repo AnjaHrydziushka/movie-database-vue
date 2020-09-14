@@ -15,7 +15,9 @@
             {{ movie.director }}
           </p>
           <p class="description">{{ movie.description }}</p>
-          <button @click="$router.push(`/movies/${movie.id}/edit`)">Edit</button>
+          <button @click="$router.push(`/movies/${movie.id}/edit`)">
+            Edit
+          </button>
           <button @click="$router.push(`/`)">Back</button>
         </div>
       </div>
@@ -55,12 +57,12 @@ h1 {
 
 .movie-image {
   margin-top: 10px;
-  width: 50%;
+  width: 30rem;
 }
 
 .movie-info {
   margin-top: 10px;
-  width: 50%;
+  width: 30rem;
   position: relative;
 }
 
