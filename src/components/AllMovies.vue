@@ -5,7 +5,9 @@
       <div v-for="movie in movies" :key="movie.id" class="container">
         <h2>{{ movie.title }}</h2>
         <img :src="movie.image" alt="Movie poster" width="300px" />
-        <router-link :to="`/movies/${movie.id}`">More details</router-link>
+        <button @click="$router.push(`/movies/${movie.id}`)">
+          About movie
+        </button>
       </div>
     </div>
   </div>
@@ -20,6 +22,11 @@ export default {
   },
   mounted() {
     this.movies = this.$store.getters.getMovies;
+  },
+  methods: {
+    button() {
+      this.$router.push(`/new-movie`);
+    }
   }
 };
 </script>
@@ -53,5 +60,18 @@ h1 {
 img {
   height: 500px;
   object-fit: cover;
+}
+
+button {
+  background-color: lightgreen;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
 }
 </style>
