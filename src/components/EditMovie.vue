@@ -91,7 +91,7 @@ export default {
           !this.image ||
           !this.description
         )
-          this.error.push("Please, fill in all the fields.");
+          this.error.push("Please, fill all the fields.");
         e.preventDefault();
       }
     }

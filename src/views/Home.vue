@@ -1,15 +1,13 @@
 <template>
-  <div class="home">
+  <div>
     <AllMovies />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import AllMovies from "@/components/AllMovies.vue";
 
 export default {
-  name: "Home",
   components: {
     AllMovies
   }

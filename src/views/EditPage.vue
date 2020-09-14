@@ -8,7 +8,6 @@
 import EditMovie from "@/components/EditMovie";
 
 export default {
-  name: "EditPage",
   components: {
     EditMovie
   }

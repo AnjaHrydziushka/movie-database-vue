@@ -93,4 +93,10 @@ img {
   border-radius: 12px;
   margin-bottom: 8px;
 }
+
+@media all and (max-width: 700px) {
+  .movies {
+    flex-direction: column;
+  }
+}
 </style>
