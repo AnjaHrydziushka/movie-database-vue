@@ -15,7 +15,8 @@
             {{ movie.director }}
           </p>
           <p class="description">{{ movie.description }}</p>
-          <router-link :to="`/movies/${movie.id}/edit`">Edit</router-link>
+          <button @click="$router.push(`/movies/${movie.id}/edit`)">Edit</button>
+          <button @click="$router.push(`/`)">Back</button>
         </div>
       </div>
     </div>
@@ -35,6 +36,7 @@ export default {
 <style scoped>
 h1 {
   padding: 0;
+  margin-bottom: 40px;
 }
 
 .movie {
@@ -55,22 +57,26 @@ h1 {
 .movie-image {
   margin-top: 10px;
   width: 50%;
+  background-color: salmon;
 }
 
 .movie-info {
   margin-top: 10px;
   width: 50%;
   position: relative;
+  background-color: sandybrown;
 }
 
 .description {
-  text-align: left;
+  text-align: justify;
 }
 
 .block {
-  position: absolute;
+  position: relative;
   left: 30%;
   top: 30%;
+  padding-left: 20px;
+  padding-right: 20px;
   -webkit-transform: translate(-30%, -30%);
   -moz-transform: translate(-30%, -30%);
   -ms-transform: translate(-30%, -30%);
@@ -80,5 +86,20 @@ h1 {
 
 p {
   font-size: larger;
+}
+
+button {
+  background-color: lightgreen;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 </style>
