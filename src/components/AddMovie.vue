@@ -47,7 +47,7 @@ export default {
     };
   },
   methods: {
-    onSubmit(e) {
+    async onSubmit(e) {
       if (
         this.title &&
         this.year &&
@@ -66,12 +66,7 @@ export default {
           description: this.description
         };
         this.$store.dispatch("onSubmit", movie);
-        this.title = null;
-        this.year = null;
-        this.director = null;
-        this.genre = null;
-        this.image = null;
-        this.description = null;
+        this.$router.push(`/`);
       } else {
         if (
           !this.title ||
