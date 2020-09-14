@@ -4,9 +4,6 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  // DON'T FORGET TO DELETE A STRICKT MODE BEFORE DEPLOYING
-
-  strict: true,
   state: {
     allMovies: [
       {
@@ -80,9 +77,9 @@ export default new Vuex.Store({
       state.allMovies = updatedMovies;
     },
     CHANGE_MOVIE(state, movie) {
-      state.allMovies.forEach(m => {
+      state.allMovies.forEach((m, index) => {
         if (m.id == movie.id) {
-          m = movie;
+          state.allMovies[index] = movie;
         }
       });
     }

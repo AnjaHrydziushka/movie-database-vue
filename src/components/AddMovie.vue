@@ -1,35 +1,45 @@
 <template>
-  <div>
-    <h1>Add a new movie</h1>
-    <p v-if="error.length">
-      <b v-for="(err, index) in error" :key="index">{{ err }}</b>
-    </p>
-    <p>
-      <label for="title">Title</label>
-      <input id="title" v-model="title" />
-    </p>
-    <p>
-      <label for="year">Year</label>
-      <input id="year" v-model.number="year" />
-    </p>
-    <p>
-      <label for="genre">Genre</label>
-      <input id="genre" v-model="genre" />
-    </p>
-    <p>
-      <label for="director">Director</label>
-      <input id="director" v-model="director" />
-    </p>
-    <p>
-      <label for="image">Image (URL)</label>
-      <input id="image" v-model="image" />
-    </p>
-    <p>
-      <label for="description">Description</label>
-      <textarea id="description" v-model="description" />
-    </p>
+  <div class="add-movie">
+    <div class="title">
+      <h1>Add a new movie</h1>
+    </div>
+    <div class="error">
+      <p v-if="error.length">
+        <b v-for="(err, index) in error" :key="index">{{ err }}</b>
+      </p>
+    </div>
+    <div class="form">
+      <div class="inputs">
+        <p>
+          <label for="title">Title</label>
+          <input v-model="title" />
+        </p>
+        <p>
+          <label for="year">Year</label>
+          <input v-model.number="year" />
+        </p>
+        <p>
+          <label for="genre">Genre</label>
+          <input v-model="genre" />
+        </p>
+        <p>
+          <label for="director">Director</label>
+          <input v-model="director" />
+        </p>
+        <p>
+          <label for="image">Image (URL)</label>
+          <input v-model="image" />
+        </p>
+      </div>
+      <div class="description">
+        <p>
+          <label for="description">Description</label>
+          <textarea v-model="description" />
+        </p>
+      </div>
+    </div>
     <button @click="onSubmit">Add movie</button>
-    <router-link :to="`/`">Back</router-link>
+    <button @click="$router.push(`/`)">Back</button>
   </div>
 </template>
 
@@ -76,7 +86,7 @@ export default {
           !this.image ||
           !this.description
         )
-          this.error.push("Please, fill in all the fields.");
+          this.error.push("Please, fill all the fields.");
         e.preventDefault();
       }
     }
@@ -87,5 +97,92 @@ export default {
 <style scoped>
 h1 {
   padding: 0;
+}
+
+button {
+  background-color: #e82f3e;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.add-movie {
+  position: absolute;
+  transform: translate(-50%, -20%);
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  max-width: 550px;
+  background: white;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  margin-bottom: 70px;
+  margin-top: 50px;
+}
+
+.form-wrapper .title h1 {
+  color: #e82f3e;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.form {
+  display: flex;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4%;
+}
+
+.inputs,
+.description {
+  width: 48%;
+}
+
+.inputs input,
+.description textarea {
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #e82f3e;
+  padding: 10px;
+  color: gray;
+  width: 100%;
+}
+
+.description textarea {
+  height: 459px;
+}
+
+label {
+  text-align: left;
+  margin-right: 150px;
+}
+
+@media screen and (max-width: 700px) {
+  .form {
+    flex-direction: column;
+  }
+  .add-movie {
+    width: 75%;
+  }
+  .description textarea {
+    height: 80px;
+  }
+  .inputs,
+  .description {
+    width: 100%;
+  }
 }
 </style>
