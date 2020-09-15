@@ -14,7 +14,7 @@
         <input v-model="title" />
 
         <label for="year">Year</label>
-        <input v-model.number="year" />
+        <input v-model="year" type="number"/>
 
         <label for="genre">Genre</label>
         <select v-model="genre">
