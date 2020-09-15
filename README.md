@@ -4,7 +4,7 @@
 
 ## About the app
 
-This is a movie database app (frontend only) with some hardcoded data stored in the Vuex store. Users can edit an existing movie record and add a new one which immediately appears then on the homepage. It's my very first app created in Vue.js.
+This is a movie database app (frontend only) with some hardcoded data stored in the Vuex store. Users can edit an existing movie record and add a new one which immediately appears on the homepage. It's my very first app created in Vue.js.
 
 ## Demo
 
