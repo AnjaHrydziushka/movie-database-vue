@@ -1,15 +1,15 @@
 <template>
   <div>
-    <AllMovies />
+    <OneMovie />
   </div>
 </template>
 
 <script>
-import AllMovies from "@/components/AllMovies.vue";
+import OneMovie from "@/components/OneMovie.vue";
 
 export default {
   components: {
-    AllMovies
+    OneMovie
   }
 };
 </script>
