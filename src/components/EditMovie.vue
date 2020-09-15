@@ -30,7 +30,7 @@
         <input v-model="director" />
 
         <label for="image">Image (URL)</label>
-        <input v-model="image" placeholder="Add link to a new porter image" />
+        <input v-model="image" placeholder="Add link to a new poster image" />
       </div>
       <div class="description">
         <label for="description">Description</label>
