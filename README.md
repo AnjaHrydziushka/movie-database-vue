@@ -1,6 +1,6 @@
 # Movie Database App in Vue.js
 
-:bangbang: Deployed version [HERE](https://hopeful-lalande-c18237.netlify.app/)! :bangbang:
+:bangbang: Deployed version is [HERE](https://hopeful-lalande-c18237.netlify.app/)! :bangbang:
 
 ## About the app
 
