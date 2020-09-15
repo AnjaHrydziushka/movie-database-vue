@@ -9,10 +9,10 @@ This is a movie database app (frontend only) with some hardcoded data stored in 
 ## Demo
 
 ### The app
-<img src="https://media.giphy.com/media/f3e3wkrcwPpr9EDTAG/giphy.gif" width="50%" />
+<img src="https://media.giphy.com/media/f3e3wkrcwPpr9EDTAG/giphy.gif" width="70%" />
 
 ### Responsive design
-<img src="https://media.giphy.com/media/iGpQLTKh3v3EYaCX8g/giphy.gif" width="50%" />
+<img src="https://media.giphy.com/media/iGpQLTKh3v3EYaCX8g/giphy.gif" width="70%" />
 
 ## Goals
 My goal was to create a user-friendly app with responsive design in Vue.js, so I can learn a new framework, compare it with the one I worked in before (React) and get to know a state management library Vuex.
