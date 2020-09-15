@@ -71,7 +71,7 @@ export default {
         this.description
       ) {
         let newMovie = {
-          id: this.$route.params.id,
+          id: parseInt(this.$route.params.id),
           title: this.title,
           year: this.year,
           genre: this.genre,
