@@ -89,7 +89,7 @@ export default {
           description: this.description
         };
         this.$store.dispatch("onSubmit", movie);
-        this.$router.push(`/`);
+        this.$router.push(`/movies/${movie.id}`);
       } else {
         this.error.push("Please, fill all the fields.");
         e.preventDefault();
