@@ -9,7 +9,7 @@
         <h2>{{ movie.title }}</h2>
         <img
           :src="movie.image"
-          alt="Movie poster"
+          :alt="movie.title"
           width="300px"
           @click="$router.push(`/movies/${movie.id}`)"
         />
