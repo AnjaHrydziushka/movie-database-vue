@@ -28,6 +28,10 @@ My goal was to create a user-friendly app with responsive design in Vue.js, so I
 
 Can be found [HERE](https://github.com/AnjaHrydziushka/movie-database-vue/projects)
 
+## Git workflow
+
+Summary of all pull requests can be found [HERE](https://github.com/AnjaHrydziushka/movie-database-vue/pull/6)
+
 ## How to install the app
 
 * clone the app
