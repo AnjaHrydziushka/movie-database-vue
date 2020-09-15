@@ -90,15 +90,7 @@ export default {
         this.$store.dispatch("onSubmit", movie);
         this.$router.push(`/`);
       } else {
-        if (
-          !this.title ||
-          !this.year ||
-          !this.genre ||
-          !this.director ||
-          !this.image ||
-          !this.description
-        )
-          this.error.push("Please, fill all the fields.");
+        this.error.push("Please, fill all the fields.");
         e.preventDefault();
       }
     }

@@ -1,20 +1,20 @@
 <template>
-  <div v-if="movie" class="edit-movie">
+  <div class="edit-movie">
     <div class="title">
       <h1>Edit movie:</h1>
     </div>
-    <div class="error">
-      <p v-if="error.length">
-        <b v-for="(err, index) in error" :key="index">{{ err }}</b>
+    <div class="error" v-if="error.length">
+      <p v-for="(err, index) in error" :key="index">
+        {{ err }}
       </p>
     </div>
     <div class="form">
       <div class="inputs">
         <label for="title">Title</label>
-        <input v-model="title" :placeholder="movie.title" />
+        <input v-model="title" />
 
         <label for="year">Year</label>
-        <input v-model="year" :placeholder="movie.year" />
+        <input v-model.number="year" />
 
         <label for="genre">Genre</label>
         <select v-model="genre">
@@ -27,14 +27,14 @@
         </select>
 
         <label for="director">Director</label>
-        <input v-model="director" :placeholder="movie.director" />
+        <input v-model="director" />
 
         <label for="image">Image (URL)</label>
         <input v-model="image" placeholder="Add new poster" />
       </div>
       <div class="description">
         <label for="description">Description</label>
-        <textarea v-model="description" :placeholder="movie.description" />
+        <textarea v-model="description" />
       </div>
     </div>
     <button @click="saveChanges">Save changes</button>
@@ -60,8 +60,17 @@ export default {
       return this.$store.getters.oneMovie(parseInt(this.$route.params.id));
     }
   },
+  created() {
+    this.title = this.movie.title;
+    this.year = this.movie.year;
+    this.director = this.movie.director;
+    this.genre = this.movie.genre;
+    this.image = this.movie.image;
+    this.description = this.movie.description;
+  },
   methods: {
     saveChanges(e) {
+      this.error = [];
       if (
         this.title &&
         this.year &&
@@ -82,15 +91,7 @@ export default {
         this.$store.dispatch("saveChanges", newMovie);
         this.$router.push(`/`);
       } else {
-        if (
-          !this.title ||
-          !this.year ||
-          !this.genre ||
-          !this.director ||
-          !this.image ||
-          !this.description
-        )
-          this.error.push("Please, fill all the fields.");
+        this.error.push("Please, fill all the fields.");
         e.preventDefault();
       }
     }
@@ -182,6 +183,11 @@ select {
 label {
   text-align: left;
   margin-right: 150px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 600px) {
