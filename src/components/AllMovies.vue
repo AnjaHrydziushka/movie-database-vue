@@ -7,7 +7,12 @@
     <div class="movies">
       <div v-for="movie in movies" :key="movie.id" class="container">
         <h2>{{ movie.title }}</h2>
-        <img :src="movie.image" alt="Movie poster" width="300px" />
+        <img
+          :src="movie.image"
+          :alt="movie.title"
+          width="300px"
+          @click="$router.push(`/movies/${movie.id}`)"
+        />
         <button
           class="about-button"
           @click="$router.push(`/movies/${movie.id}`)"

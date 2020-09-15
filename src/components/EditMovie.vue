@@ -10,32 +10,31 @@
     </div>
     <div class="form">
       <div class="inputs">
-        <p>
-          <label for="title">Title</label>
-          <input v-model="title" :placeholder="movie.title" />
-        </p>
-        <p>
-          <label for="year">Year</label>
-          <input v-model="year" :placeholder="movie.year" />
-        </p>
-        <p>
-          <label for="genre">Genre</label>
-          <input v-model="genre" :placeholder="movie.genre" />
-        </p>
-        <p>
-          <label for="director">Director</label>
-          <input v-model="director" :placeholder="movie.director" />
-        </p>
-        <p>
-          <label for="image">Image (URL)</label>
-          <input v-model="image" placeholder="Add new poster" />
-        </p>
+        <label for="title">Title</label>
+        <input v-model="title" :placeholder="movie.title" />
+
+        <label for="year">Year</label>
+        <input v-model="year" :placeholder="movie.year" />
+
+        <label for="genre">Genre</label>
+        <select v-model="genre">
+          <option default disabled>{{ movie.genre }}</option>
+          <option>comedy</option>
+          <option>drama</option>
+          <option>animation</option>
+          <option>horror</option>
+          <option>romance</option>
+        </select>
+
+        <label for="director">Director</label>
+        <input v-model="director" :placeholder="movie.director" />
+
+        <label for="image">Image (URL)</label>
+        <input v-model="image" placeholder="Add new poster" />
       </div>
       <div class="description">
-        <p>
-          <label for="description">Description</label>
-          <textarea v-model="description" :placeholder="movie.description" />
-        </p>
+        <label for="description">Description</label>
+        <textarea v-model="description" :placeholder="movie.description" />
       </div>
     </div>
     <button @click="saveChanges">Save changes</button>
@@ -166,8 +165,18 @@ button {
   width: 100%;
 }
 
+select {
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #0196e5;
+  padding: 10px;
+  color: gray;
+  width: 100%;
+}
+
 .description textarea {
-  height: 459px;
+  height: 333px;
 }
 
 label {

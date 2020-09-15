@@ -10,32 +10,30 @@
     </div>
     <div class="form">
       <div class="inputs">
-        <p>
-          <label for="title">Title</label>
-          <input v-model="title" />
-        </p>
-        <p>
-          <label for="year">Year</label>
-          <input v-model.number="year" />
-        </p>
-        <p>
-          <label for="genre">Genre</label>
-          <input v-model="genre" />
-        </p>
-        <p>
-          <label for="director">Director</label>
-          <input v-model="director" />
-        </p>
-        <p>
-          <label for="image">Image (URL)</label>
-          <input v-model="image" />
-        </p>
+        <label for="title">Title</label>
+        <input v-model="title" />
+
+        <label for="year">Year</label>
+        <input v-model.number="year" />
+
+        <label for="genre">Genre</label>
+        <select v-model="genre">
+          <option>comedy</option>
+          <option>drama</option>
+          <option>animation</option>
+          <option>horror</option>
+          <option>romance</option>
+        </select>
+
+        <label for="director">Director</label>
+        <input v-model="director" />
+
+        <label for="image">Image (URL)</label>
+        <input v-model="image" />
       </div>
       <div class="description">
-        <p>
-          <label for="description">Description</label>
-          <textarea v-model="description" />
-        </p>
+        <label for="description">Description</label>
+        <textarea v-model="description" />
       </div>
     </div>
     <button @click="onSubmit">Add movie</button>
@@ -56,6 +54,20 @@ export default {
       error: []
     };
   },
+  computed: {
+    movie() {
+      return this.$store.getters.getMovies.reduce(function(prev, current) {
+        if (+current.id > +prev.id) {
+          return current;
+        } else {
+          return prev;
+        }
+      });
+    },
+    newId() {
+      return parseInt(this.movie.id) + 1;
+    }
+  },
   methods: {
     onSubmit(e) {
       if (
@@ -67,7 +79,7 @@ export default {
         this.description
       ) {
         let movie = {
-          id: new Date().getTime(),
+          id: this.newId,
           title: this.title,
           year: this.year,
           genre: this.genre,
@@ -161,8 +173,18 @@ button {
   width: 100%;
 }
 
+select {
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #e82f3e;
+  padding: 10px;
+  color: gray;
+  width: 100%;
+}
+
 .description textarea {
-  height: 459px;
+  height: 333px;
 }
 
 label {
