@@ -8,10 +8,10 @@ This is a movie database app (frontend only) with some hardcoded data stored in 
 
 ## Demo
 
-**The app:**
+### The app
 <img src="https://media.giphy.com/media/f3e3wkrcwPpr9EDTAG/giphy.gif" width="50%" />
 
-**Responsive design:**
+### Responsive design
 <img src="https://media.giphy.com/media/iGpQLTKh3v3EYaCX8g/giphy.gif" width="50%" />
 
 ## Goals
