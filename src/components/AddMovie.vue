@@ -20,7 +20,13 @@
         </p>
         <p>
           <label for="genre">Genre</label>
-          <input v-model="genre" />
+          <select v-model="genre">
+            <option>comedy</option>
+            <option>drama</option>
+            <option>animation</option>
+            <option>horror</option>
+            <option>romance</option>
+          </select>
         </p>
         <p>
           <label for="director">Director</label>
@@ -152,6 +158,16 @@ button {
 
 .inputs input,
 .description textarea {
+  margin: 10px 0;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid #e82f3e;
+  padding: 10px;
+  color: gray;
+  width: 100%;
+}
+
+select {
   margin: 10px 0;
   background: transparent;
   border: 0px;
