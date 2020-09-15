@@ -1,6 +1,6 @@
 # Movie Database App in Vue.js
 
-👉 Click [HERE](https://hopeful-lalande-c18237.netlify.app/) to check out the deployed version.
+:bangbang: Deployed version [HERE](https://hopeful-lalande-c18237.netlify.app/)! :bangbang:
 
 ## About the app
 
