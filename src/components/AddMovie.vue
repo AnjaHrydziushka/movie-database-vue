@@ -54,6 +54,20 @@ export default {
       error: []
     };
   },
+  computed: {
+    movie() {
+      return this.$store.getters.getMovies.reduce(function(prev, current) {
+        if (+current.id > +prev.id) {
+          return current;
+        } else {
+          return prev;
+        }
+      });
+    },
+    newId() {
+      return parseInt(this.movie.id) + 1;
+    }
+  },
   methods: {
     onSubmit(e) {
       if (
@@ -65,7 +79,7 @@ export default {
         this.description
       ) {
         let movie = {
-          id: new Date().getTime(),
+          id: this.newId,
           title: this.title,
           year: this.year,
           genre: this.genre,
