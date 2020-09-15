@@ -10,7 +10,7 @@ export default new Vuex.Store({
         id: 1,
         title: "Ace Ventura: Pet Detective",
         year: 1994,
-        image: require("../assets/ace-ventura.jpg"),
+        image: "https://m.media-amazon.com/images/M/MV5BYmVhNmFmOGYtZjgwNi00ZGQ0LThiMmQtOGZjMDUzNzJhMGIzXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY1200_CR93,0,630,1200_AL_.jpg",
         director: "Tom Shadyac",
         genre: "comedy",
         description:
@@ -20,7 +20,7 @@ export default new Vuex.Store({
         id: 2,
         title: "The Secret Life of Pets",
         year: 2016,
-        image: require("../assets/pets.jpg"),
+        image: "https://m.media-amazon.com/images/M/MV5BMjIzMzA1OTkzNV5BMl5BanBnXkFtZTgwODE3MjM4NzE@._V1_.jpg",
         director: "Chris Renaud, Yarrow Cheney",
         genre: "animation",
         description:
@@ -30,7 +30,7 @@ export default new Vuex.Store({
         id: 3,
         title: "Joker",
         year: 2019,
-        image: require("../assets/joker.jpg"),
+        image: "https://cdn.shopify.com/s/files/1/0969/9128/products/Joker_-_Put_On_A_Happy_Face_-_Joaquin_Phoenix_-_Hollywood_English_Movie_Poster_3_6cb8f765-be3f-4cb8-bb4e-ead8c435e42e.jpg?v=1579504964",
         director: "Todd Phillips",
         genre: "drama",
         description:
@@ -40,7 +40,7 @@ export default new Vuex.Store({
         id: 4,
         title: "Doctor Sleep",
         year: 2019,
-        image: require("../assets/doctor-sleep.jpg"),
+        image: "https://fanart.tv/fanart/movies/501170/movieposter/doctor-sleep-5e6292407525e.jpg",
         director: "Mike Flanagan",
         genre: "horror",
         description:
@@ -50,7 +50,7 @@ export default new Vuex.Store({
         id: 5,
         title: "Forgetting Sarah Marshall",
         year: 2008,
-        image: require("../assets/marshall.jpg"),
+        image: "https://image.tmdb.org/t/p/w500/j2KXt3gObsAaRj9RKpCp8tiosTk.jpg",
         director: "Nicholas Stoller",
         genre: "comedy",
         description:
@@ -60,7 +60,7 @@ export default new Vuex.Store({
         id: 6,
         title: "Pride & Prejudice",
         year: 2005,
-        image: require("../assets/pride.jpg"),
+        image: "https://m.media-amazon.com/images/M/MV5BMTA1NDQ3NTcyOTNeQTJeQWpwZ15BbWU3MDA0MzA4MzE@._V1_.jpg",
         director: "Joe Wright",
         genre: "romance",
         description:

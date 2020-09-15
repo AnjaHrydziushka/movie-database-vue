@@ -3,9 +3,9 @@
     <div class="title">
       <h1>Add a new movie</h1>
     </div>
-    <div class="error">
-      <p v-if="error.length">
-        <b v-for="(err, index) in error" :key="index">{{ err }}</b>
+    <div class="error" v-if="error.length">
+      <p v-for="(err, index) in error" :key="index">
+        {{ err }}
       </p>
     </div>
     <div class="form">
@@ -14,7 +14,7 @@
         <input v-model="title" />
 
         <label for="year">Year</label>
-        <input v-model.number="year" />
+        <input v-model="year" type="number" />
 
         <label for="genre">Genre</label>
         <select v-model="genre">
@@ -70,6 +70,7 @@ export default {
   },
   methods: {
     onSubmit(e) {
+      this.error = [];
       if (
         this.title &&
         this.year &&
@@ -182,6 +183,11 @@ select {
 label {
   text-align: left;
   margin-right: 150px;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 700px) {
