@@ -14,7 +14,7 @@
         <input v-model="title" />
 
         <label for="year">Year</label>
-        <input v-model="year" type="number"/>
+        <input v-model="year" type="number" />
 
         <label for="genre">Genre</label>
         <select v-model="genre">
@@ -30,7 +30,7 @@
         <input v-model="director" />
 
         <label for="image">Image (URL)</label>
-        <input v-model="image" placeholder="Add new poster" />
+        <input v-model="image" placeholder="Add link to a new porter image" />
       </div>
       <div class="description">
         <label for="description">Description</label>
