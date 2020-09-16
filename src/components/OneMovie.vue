@@ -18,7 +18,7 @@
           <button @click="$router.push(`/movies/${movie.id}/edit`)">
             Edit
           </button>
-          <button @click="$router.push(`/`)">Back</button>
+          <button @click="$router.push(`/`)">Go to homepage</button>
         </div>
       </div>
     </div>
